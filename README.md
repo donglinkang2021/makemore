@@ -107,6 +107,8 @@ You can see use tensorboard to visualize the training progress:
 $ tensorboard --logdir=names
 ```
 
+![alt text](images/README/image.png)
+
 ### License
 
 MIT
