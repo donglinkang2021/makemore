@@ -1,0 +1,8 @@
+input_file: names.txt # input file with things one per line
+work_dir: out # output working directory
+resume: false # when this flag is used, we will resume optimization from existing model in the workdir
+sample_only: false # just sample from the model and quit, don't train
+num_workers: 4 # number of data workers for both train/test
+max_steps: -1 # max number of optimization steps to run for, or -1 for infinite.
+device: cpu # device to use for compute, examples: cpu|cuda|cuda:2|mps
+seed: 3407

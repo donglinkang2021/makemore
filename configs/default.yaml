@@ -1,0 +1,6 @@
+defaults:
+  - model: transformer
+  - optimization: default
+  - sampling: default
+  - system: default
+  - _self_

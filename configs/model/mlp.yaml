@@ -1,0 +1,3 @@
+_target_: model.mlp.MLP
+n_embd: 64 # number of feature channels in the model
+n_embd2: 64 # number of feature channels elsewhere in the model

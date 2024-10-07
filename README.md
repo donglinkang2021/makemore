@@ -32,13 +32,18 @@ charlotte
 Let's point the script at it:
 
 ```bash
-$ python makemore.py -i names.txt -o names
+$ python makemore.py \
+    system.input_file=names.txt \
+    system.work_dir=names
 ```
 
 Training progress and logs and model will all be saved to the working directory `names`. The default model is a super tiny 200K param transformer; Many more training configurations are available - see the argparse and read the code. Training does not require any special hardware, it runs on my Macbook Air and will run on anything else, but if you have a GPU then training will fly faster. As training progresses the script will print some samples throughout. However, if you'd like to sample manually, you can use the `--sample-only` flag, e.g. in a separate terminal do:
 
 ```bash
-$ python makemore.py -i names.txt -o names --sample-only
+$ python makemore.py \
+    system.input_file=names.txt \
+    system.work_dir=names \
+    system.sample_only=true
 ```
 
 This will load the best model so far and print more samples on demand. Here are some unique baby names that get eventually generated from current default settings (test logprob of ~1.92, though much lower logprobs are achievable with some hyperparameter tuning):
@@ -75,6 +80,32 @@ lucianno
 ```
 
 Have fun!
+
+For multiple runs, you can use the `--multirun` or `-m` flag, multiple models can be specified with a comma separated list:
+
+```bash
+$ python makemore.py --multirun \
+    model=transformer,bigram,bow,mlp,rnn,gru \
+    system.max_steps=2000 \
+    system.input_file=names.txt \
+    system.work_dir=names
+```
+
+This will train all models for 1000 steps and save them to the `names` directory. The best model will be selected based on the validation loss. The `--multirun` flag can be used with `--sample-only` as well.
+
+```bash
+$ python makemore.py --multirun\
+    model=transformer,bigram,bow,mlp,rnn,gru \
+    system.input_file=names.txt \
+    system.work_dir=names \
+    system.sample_only=true
+```
+
+You can see use tensorboard to visualize the training progress:
+
+```bash
+$ tensorboard --logdir=names
+```
 
 ### License
 

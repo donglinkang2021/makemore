@@ -1,0 +1,4 @@
+_target_: model.transformer.Transformer
+n_layer: 4 # number of layers
+n_head: 4 # number of heads (in a transformer)
+n_embd: 64 # number of feature channels in the model

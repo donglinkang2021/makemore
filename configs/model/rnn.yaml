@@ -1,0 +1,4 @@
+_target_: model.rnn.RNN
+cell_type: rnn
+n_embd: 64 # number of feature channels in the model
+n_embd2: 64 # number of feature channels elsewhere in the model
