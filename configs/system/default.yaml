@@ -1,4 +1,4 @@
-input_file: names.txt # input file with things one per line
+input_file: data/names_en.txt # input file with things one per line
 work_dir: out # output working directory
 resume: false # when this flag is used, we will resume optimization from existing model in the workdir
 sample_only: false # just sample from the model and quit, don't train

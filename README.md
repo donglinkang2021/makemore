@@ -87,8 +87,8 @@ For multiple runs, you can use the `--multirun` or `-m` flag, multiple models ca
 $ python makemore.py --multirun \
     model=transformer,bigram,bow,mlp,rnn,gru \
     system.max_steps=2000 \
-    system.input_file=names.txt \
-    system.work_dir=names
+    system.input_file=data/names_zh.txt \
+    system.work_dir=names_zh
 ```
 
 This will train all models for 1000 steps and save them to the `names` directory. The best model will be selected based on the validation loss. The `--multirun` flag can be used with `--sample-only` as well.
