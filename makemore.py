@@ -24,9 +24,7 @@ def main(cfg:Config):
     # system inits
     torch.manual_seed(cfg.system.seed)
     torch.cuda.manual_seed_all(cfg.system.seed)
-    import datetime
     from pathlib import Path
-    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     log_dir = Path(cfg.system.work_dir) / model_name
     log_dir.mkdir(parents=True, exist_ok=True)
     writer = SummaryWriter(log_dir=log_dir)
